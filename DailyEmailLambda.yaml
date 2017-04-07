@@ -1,0 +1,19 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: send daily email of uncompleted tasks
+Resources:
+  DailyEmailLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs6.10
+      CodeUri: .
+      Description: send daily email of uncompleted tasks
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::550632464207:role/SESSender'
+      Events:
+        Schedule1:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 6 * * ? *)
