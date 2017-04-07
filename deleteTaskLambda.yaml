@@ -1,0 +1,20 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: delete a task
+Resources:
+  deleteTaskLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs6.10
+      CodeUri: .
+      Description: delete a task
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::550632464207:role/service-role/admin'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /deleteTaskLambda
+            Method: ANY
