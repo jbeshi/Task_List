@@ -1,14 +1,14 @@
 ﻿AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
-Description: lambda function to retrieve tasks from dynamo DB
+Description: delete a note
 Resources:
-  getTasksLambda:
+  deleteNote:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: index.handler
       Runtime: nodejs6.10
       CodeUri: .
-      Description: lambda function to retrieve tasks from dynamo DB
+      Description: delete a note
       MemorySize: 128
       Timeout: 3
       Role: 'arn:aws:iam::550632464207:role/user'
